@@ -1,0 +1,1 @@
+mvn install:install-file -Dfile=ekit.jar -DgroupId=com.hexidec -DartifactId=ekit -Dversion=1.0 -Dpackaging=jar
