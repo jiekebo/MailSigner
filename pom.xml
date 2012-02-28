@@ -1,12 +1,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<groupId>com.mailsigner</groupId>
+		<artifactId>MailSignerPom</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>com.mailsigner</groupId>
 	<artifactId>MailSignerServer</artifactId>
-	<version>1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
-
+	<version>1.0-SNAPSHOT</version>
 	<name>MailSignerServer</name>
 	<url>http://maven.apache.org</url>
 
@@ -42,7 +45,7 @@
 			<version>2.2.8</version>
 		</dependency>
 		<dependency>
-			<groupId>com.hexidec</groupId>
+			<groupId>com.hexidex</groupId>
 			<artifactId>ekit</artifactId>
 			<version>1.0</version>
 		</dependency>
