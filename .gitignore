@@ -2,3 +2,7 @@
 .project
 .settings/
 target/
+/logs
+/data
+/settings.ini
+/MailSignerServer.iml

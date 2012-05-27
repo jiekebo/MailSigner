@@ -9,13 +9,17 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.swing.UIManager;
+import javax.xml.ws.Endpoint;
 
 import org.apache.log4j.Logger;
 
+import com.beust.jcommander.JCommander;
+import com.beust.jcommander.Parameter;
 import com.mailsigner.control.SignatureController;
 import com.mailsigner.control.UserController;
 import com.mailsigner.control.discovery.MulticastServer;
 import com.mailsigner.control.runnable.ServerThread;
+import com.mailsigner.control.ws.MailSignerServiceImpl;
 import com.mailsigner.util.DatabaseUtil;
 import com.mailsigner.util.Settings;
 import com.mailsigner.view.LoginFrame;
@@ -35,16 +39,14 @@ public class MailSigner {
 	private static Logger log = Logger.getLogger(MailSigner.class);
 
 	// Commmand line arguments
-	private static boolean developerMode = false;
-	private static boolean resetDatabase = false;
-	private static boolean server = false;
+	
 	
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// Parse arguments
-		parseArgs(args);
+		final Parameters param = new Parameters();
+		new JCommander(param, args);
 		
 		// Load settings
 		settings = new Settings();
@@ -66,18 +68,22 @@ public class MailSigner {
 		entr = em.getTransaction();
 		
 		DatabaseUtil dbl = new DatabaseUtil();
+		
+		// Create the database, does nothing if it already exists.
+		if(!param.isResetDatabase()) {
+			dbl.createDatabase();
+		}
 
-		if(resetDatabase) {
-			dbl.resetDatabase();
-		}
-		
-		while(!em.isOpen()) {
-			// wait till the database has initialized
-		}
-		
+		// If the database files were not found, database has just been created
+		// thus default fields must be inserted here.
 		if(!databaseExists) {
 			dbl.insertDefaultFields();
 		}
+		
+		// Reset database on command line parameter
+		if(param.isResetDatabase()) {
+			dbl.resetDatabase();
+		}		
 
 		// Start udp multicast server
 		MulticastServer multicastServer = new MulticastServer();
@@ -85,7 +91,11 @@ public class MailSigner {
 		multicastThread.setDaemon(true);
 		multicastThread.start();
 		
-		if(server) {
+		// Start webservice endpoint
+		Endpoint.publish("http://localhost:9999/ws/mailsigner", new MailSignerServiceImpl());
+		
+		// Stop here if servermode is requested, otherwise, create the gui
+		if(param.isServer()) {
 			return;
 		}
 
@@ -97,8 +107,8 @@ public class MailSigner {
 						userController = new UserController();
 						UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
 						LoginFrame loginFrame = new LoginFrame();
-						loginFrame.setVisible(!developerMode);
-						if (developerMode) {
+						loginFrame.setVisible(!param.isDeveloperMode());
+						if (param.isDeveloperMode()) {
 							mainFrame = new MainFrame();
 							mainFrame.setVisible(true);
 							settings.setUserLimit(9999);
@@ -112,21 +122,6 @@ public class MailSigner {
 			log.error("Gui thread interrupted", e);
 		} catch (InvocationTargetException e) {
 			log.error("Invocation target exception", e);
-		}
-	}
-	
-	public static void parseArgs(String[] args) {
-		for (String string : args) {
-			if (string.equals("-d")) {
-				developerMode = true;
-				log.debug("Developer mode chosen");
-			} else if (string.equals("-s")) {
-				server = true;
-				log.debug("Server mode chosen");
-			} else if (string.equals("-r")) {
-				resetDatabase = true;
-				log.debug("Database reset chosen");
-			}
 		}
 	}
 

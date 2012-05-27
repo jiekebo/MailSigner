@@ -60,6 +60,10 @@ public class UserController {
 	public UserSignaturesTableController getUserSignaturesTableController() {
 		return userSignaturesTableController;
 	}
+	
+	public User getUser(String name) {
+		return userModel.getUser(name);
+	}
 
 	public boolean isAdUser() {
 		return userModel.isAdUser();

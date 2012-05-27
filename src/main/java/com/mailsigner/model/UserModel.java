@@ -103,6 +103,15 @@ public class UserModel {
 		return user;
 	}
 	
+	public User getUser(String name) {
+		TypedQuery<User> userQuery = em.createNamedQuery("User.findUser", User.class);
+		userQuery.setParameter("value", name);
+		if(userQuery.getResultList().size() > 0) {
+			return userQuery.getSingleResult();
+		}
+		return null;
+	}
+	
 	public boolean isAdUser() {
 		if (selectedUser != null) {
 			return selectedUser.getActivedirectory() == 0 ? false : true;
@@ -160,4 +169,5 @@ public class UserModel {
 		userField.setValue(value);
 		entr.commit();
 	}
+
 }
