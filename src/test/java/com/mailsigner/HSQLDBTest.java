@@ -22,8 +22,7 @@ import com.mailsigner.model.persistence.UserfieldPK;
 
 
 public class HSQLDBTest {
-	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		// start server thread
+	public static void main(String[] args) {
 		ServerThread hsqlThread = new ServerThread();
 		Thread serverThread = new Thread(hsqlThread);
 		serverThread.start();

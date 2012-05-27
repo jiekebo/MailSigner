@@ -14,7 +14,6 @@ import javax.xml.ws.Endpoint;
 import org.apache.log4j.Logger;
 
 import com.beust.jcommander.JCommander;
-import com.beust.jcommander.Parameter;
 import com.mailsigner.control.SignatureController;
 import com.mailsigner.control.UserController;
 import com.mailsigner.control.discovery.MulticastServer;
@@ -36,10 +35,7 @@ public class MailSigner {
 	private static UserController userController;
 	private static SignatureController signatureController;
 	
-	private static Logger log = Logger.getLogger(MailSigner.class);
-
-	// Commmand line arguments
-	
+	private static Logger log = Logger.getLogger(MailSigner.class);	
 	
 	/**
 	 * @param args
