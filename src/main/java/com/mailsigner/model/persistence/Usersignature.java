@@ -43,6 +43,13 @@ public class Usersignature implements Serializable {
 	public byte getEnabled() {
 		return this.enabled;
 	}
+	
+	public boolean isEnabled() {
+		if(this.enabled == 1) {
+			return true;
+		}
+		return false;
+	}
 
 	public void setEnabled(byte enabled) {
 		this.enabled = enabled;

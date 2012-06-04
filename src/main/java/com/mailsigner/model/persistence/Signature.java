@@ -88,7 +88,10 @@ public class Signature implements Serializable {
 	}
 
 	public byte[] getHtml() {
-		return html;
+		if(html != null) {
+			return html;
+		}
+		return new byte[0];
 	}
 
 	public void setHtml(byte[] html) {
@@ -96,7 +99,10 @@ public class Signature implements Serializable {
 	}
 
 	public byte[] getRtf() {
-		return rtf;
+		if(rtf != null) {
+			return rtf;			
+		}
+		return new byte[0];
 	}
 
 	public void setRtf(byte[] rtf) {
@@ -104,7 +110,10 @@ public class Signature implements Serializable {
 	}
 
 	public byte[] getTxt() {
-		return txt;
+		if(txt != null) {
+			return txt;			
+		}
+		return new byte[0];
 	}
 
 	public void setTxt(byte[] txt) {
