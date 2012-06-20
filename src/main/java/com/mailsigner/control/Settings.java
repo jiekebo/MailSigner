@@ -87,6 +87,9 @@ public class Settings implements Serializable {
 	public void readSettings() {
 		outlookDirs = props.getProperty(outlookDirsLabel);
 		outlookDirsArray = readArray(outlookDirs);
+		
+		
+		
 	}
 	
 	/**
@@ -103,7 +106,7 @@ public class Settings implements Serializable {
 	/**
 	 * 
 	 * @param arrayString
-	 * @return
+	 * @return blabla
 	 */
 	private ArrayList<String> readArray(String arrayString) {
 		String[] array = arrayString.split(";");
@@ -117,7 +120,7 @@ public class Settings implements Serializable {
 	/**
 	 * 
 	 * @param array
-	 * @return
+	 * @return blabla
 	 */
 	private String writeArray(ArrayList<String> array) {
 		StringBuilder sb = new StringBuilder();

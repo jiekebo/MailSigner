@@ -1,15 +1,15 @@
 package com.mailsigner;
 
 import java.net.InetAddress;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import org.apache.log4j.Logger;
-import org.apache.log4j.chainsaw.Main;
 
 import com.mailsigner.control.Settings;
 import com.mailsigner.control.TrayControl;
 import com.mailsigner.control.discovery.MulticastClient;
 import com.mailsigner.view.TrayView;
-
 
 public class MailSignerClient {
 	
@@ -28,11 +28,19 @@ public class MailSignerClient {
 		MulticastClient testClient = new MulticastClient();
 		InetAddress serverAddress = testClient.getServerAddress();
 		
-		TrayControl trayControl = new TrayControl();
-		trayControl.connectDB(serverAddress);
-				
+		TrayControl trayControl = new TrayControl();		
+		
+		// TODO: Make the webservice poll and reconnect.
+		URL serviceLocation = null;
+		try {
+			serviceLocation = new URL("http:/" + serverAddress + ":9999/ws/mailsigner/");
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
+		trayControl.connectWebservice(serviceLocation, "http://ws.control.mailsigner.com/", "MailSignerServiceImplService");
+		
 		TrayView tray = new TrayView(trayControl, serverAddress);
-		tray.prepareLaout();
+		tray.prepareLayout();
 	}
 
 	public static Settings getSettings() {

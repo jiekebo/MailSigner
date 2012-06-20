@@ -8,7 +8,9 @@ import java.awt.datatransfer.Transferable;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.net.InetAddress;
+import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,47 +18,35 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
 
 import org.apache.log4j.Logger;
 
 import com.mailsigner.MailSignerClient;
+import com.mailsigner.control.exceptions.UserNotFoundException;
+import com.mailsigner.control.ws.Base64BinaryArray;
+import com.mailsigner.control.ws.MailSignerService;
+import com.mailsigner.control.ws.SignatureFormat;
+import com.mailsigner.control.ws.StringArray;
+import com.mailsigner.control.ws.StringArrayArray;
 import com.mailsigner.model.CompletedSignature;
 import com.mailsigner.model.HtmlSelection;
 import com.mailsigner.model.RtfSelection;
-import com.mailsigner.model.persistence.Computer;
-import com.mailsigner.model.persistence.ComputerPK;
-import com.mailsigner.model.persistence.Signature;
-import com.mailsigner.model.persistence.User;
-import com.mailsigner.model.persistence.Userfield;
-import com.mailsigner.model.persistence.Usersignature;
 
 public class TrayControl implements ClipboardOwner {
 	private static Logger log = MailSignerClient.getLog();
-	private String userLogin = null;
+	private String userName = null;
 	private String computerName = null;
 	private ArrayList<String> outlookDirs = MailSignerClient.getSettings().getOutlookDirsArray();
-	private Computer currentComputer;
-	private boolean isConnected = false;
-	private User user;
-	private static EntityManagerFactory emf;
-	private static EntityManager em;
-	private static EntityTransaction entr;
+	private MailSignerService service;
 	
 	/**
 	 * Controller for the tray icon menu actions
 	 * @param serverAddress Address of the database server
 	 */
 	public TrayControl() {
-		userLogin = System.getProperty("user.name");
+		userName = System.getProperty("user.name");
 		try {
 			computerName = InetAddress.getLocalHost().getHostName();
 		} catch (UnknownHostException e1) {
@@ -64,80 +54,50 @@ public class TrayControl implements ClipboardOwner {
 		}
 	}
 	
-	/**
-	 * Connect to the database, given the server address
-	 * @param serverAddress Server address
-	 */
-	public void connectDB(InetAddress serverAddress) {
-		if(serverAddress == null) {
-			return;			
-		}
-		
-		Map<String,String> dbProps = createDbProperties("jdbc:hsqldb:hsql:/" + serverAddress.toString() + "/mailsignerdb");
-		System.out.println("Connecting to: jdbc:hsqldb:hsql:/" + serverAddress.toString() + "/mailsignerdb");
-		emf = Persistence.createEntityManagerFactory("MailSignerJPA", dbProps);
-		em = emf.createEntityManager();
-		entr = em.getTransaction();		
-		user = loadUser();		
-		if(user != null) {
-			isConnected  = true;
-		}
+	public void connectWebservice(URL serviceLocation, String serviceDomain, String serviceName) {
+		MailSignerServiceClient serviceClient = new MailSignerServiceClient(serviceLocation, "http://ws.control.mailsigner.com/", "MailSignerServiceImplService");
+		service = serviceClient.connect();
 	}
 
 	/**
 	 * Redeploy signatures to the Outlook folders
 	 */
 	public void deploy() {
-		if(!isConnected || user == null || isSynchronized()) {
-			return;
-		}
-		
-		HashMap<String,String> fieldMap = createFieldMap(user);
-		Set<Usersignature> userSignatures = loadUsersSignatures();
-		
-		ArrayList<String> deletionList = new ArrayList<String>();
-		HashMap<String,CompletedSignature> creationList = new HashMap<String, CompletedSignature>();
-		
-		for (Usersignature userSignature : userSignatures) {
-			log.info("Preparing user signature [" + userSignature.getSignature().getTitle() + "]");
-			if(userSignature.getEnabled() == 0) {
-				String unusedSignatureTitle = userSignature.getSignature().getTitle();
-				deletionList.add(unusedSignatureTitle);
-				log.info("Signature [" +  unusedSignatureTitle + "] added to deletion list");
-				continue;
-			}
-			
-			CompletedSignature completedSignature = new CompletedSignature();
-			completedSignature.setTitle(userSignature.getSignature().getTitle());
-			
-			if(userSignature.getSignature().getHtml() != null) {
-				log.info("Replacing html fields");
-				String htmlFromByte = new String(userSignature.getSignature().getHtml());
-				String html = replaceFields(htmlFromByte, fieldMap, false);
-				completedSignature.setHtml(html);
-			}
-			
-			if(userSignature.getSignature().getRtf() != null) {
-				log.info("Replacing rtf fields");
-				String rtfFromByte = new String(userSignature.getSignature().getRtf());
-				String rtf = replaceFields(rtfFromByte, fieldMap, true);
-				completedSignature.setRtf(rtf);
-			}
-			
-			if(userSignature.getSignature().getTxt() != null) {
-				log.info("Replacing txt fields");
-				String txtFromByte = new String(userSignature.getSignature().getTxt());
-				String txt = replaceFields(txtFromByte, fieldMap, false);
-				completedSignature.setTxt(txt);
-			}
+		try {
+			HashMap<String, String> fieldMap = getUserFields();
+			List<String> deletionList = service.getSignatureDeletionList(userName).getItem();
+			List<String> creationList = getUserSignatures();
 
-			creationList.put(completedSignature.getTitle(), completedSignature);
-			log.info("Signature [" + completedSignature.getTitle() + "] added to creation list");
+			HashMap<String,CompletedSignature> signatureCollection = new HashMap<String, CompletedSignature>();
+			
+			for (String signatureName : creationList) {
+				log.info("Preparing user signature [" + signatureName + "]");
+				Base64BinaryArray fullSignature = service.getFullSignature(signatureName);
+				List<byte[]> fullSignatureBytes = fullSignature.getItem();
+				CompletedSignature completedSignature = new CompletedSignature();
+				
+				log.info("Replacing html fields");
+				String html = replaceFields(new String(fullSignatureBytes.get(0)), fieldMap, false);
+				log.info("Replacing rtf fields");
+				String rtf = replaceFields(new String(fullSignatureBytes.get(1)), fieldMap, true);
+				log.info("Replacing txt fields");
+				String txt = replaceFields(new String(fullSignatureBytes.get(2)), fieldMap, false);
+				
+				completedSignature.setHtml(html);
+				completedSignature.setRtf(rtf);
+				completedSignature.setTxt(txt);
+				
+				signatureCollection.put(signatureName, completedSignature);
+			}
+			
+			deleteSignatures(deletionList);
+			writeSignatures(signatureCollection);
+			service.updateUserComputer(userName, computerName);
+		} catch (UserNotFoundException e) {
+			log.debug("User could not be found");
+		} catch (IOException e) {
+			log.debug("Writing signatures genereated error", e);
 		}
-		
-		deleteSignatures(deletionList);
-		boolean writeSuccess = writeSignatures(creationList);
-		updateComputerState(writeSuccess);
 	}
 	
 	/**
@@ -145,136 +105,83 @@ public class TrayControl implements ClipboardOwner {
 	 * @param selectedFormat 
 	 * @param selectedSignature 
 	 */
-	public void clipboard(Usersignature selectedSignature, Integer selectedFormat) {
+	public void clipboard(String selectedSignature, int selectedFormat) {
 		Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-		Signature signatureFrame = selectedSignature.getSignature();
-		HashMap<String,String> fieldMap = createFieldMap(user);
 		
-		if(selectedFormat == 0 && signatureFrame.getHtml() != null) {
-			String htmlFromByte = new String(selectedSignature.getSignature().getHtml());
-			String html = replaceFields(htmlFromByte, fieldMap, false);
+		byte[] signature = null;
+
+		//TODO: remove magic numbers!!!
+		switch (selectedFormat) {
+			case 0:
+				signature = service.getSignature(selectedSignature, SignatureFormat.HTML);
+				break;
+			case 1:
+				signature = service.getSignature(selectedSignature, SignatureFormat.RTF);
+				break;
+			case 2:
+				signature = service.getSignature(selectedSignature, SignatureFormat.TXT);
+				break;
+		}
+		
+		String signatureValue = null;
+		try {
+			signatureValue = new String(signature, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		HashMap<String, String> fieldMap = null;
+		try {
+			fieldMap = getUserFields();
+		} catch (UserNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		if(selectedFormat == 0 && signatureValue != null) {
+			String html = replaceFields(signatureValue, fieldMap, false);
 			Transferable htmlTransferable = new HtmlSelection(html);
 			clipboard.setContents(htmlTransferable, this);
-		} else if(selectedFormat == 1 && signatureFrame.getRtf() != null) {
-			String rtfFromByte = new String(selectedSignature.getSignature().getRtf());
-			String rtf = replaceFields(rtfFromByte, fieldMap, true);
+		} else if(selectedFormat == 1 && signature != null) {
+			String rtf = replaceFields(signatureValue, fieldMap, true);
 			Transferable rtfTransferable = new RtfSelection(rtf);
 			clipboard.setContents(rtfTransferable, this);
-		} else if(selectedFormat == 2 && signatureFrame.getTxt() != null) {
-			String txtFromByte = new String(selectedSignature.getSignature().getTxt());
-			String txt = replaceFields(txtFromByte, fieldMap, false);
+		} else if(selectedFormat == 2 && signature != null) {
+			String txt = replaceFields(signatureValue, fieldMap, false);
 			Transferable txtTransferable = new StringSelection(txt);
 			clipboard.setContents(txtTransferable, this);
 		}
 	}
 	
-	/**
-	 * Load the persisted signatures for the current user
-	 * @return Set containing Usersignature
-	 */
-	public Set<Usersignature> loadUsersSignatures() {
-		if(!isConnected || user == null) {
-			return null;
+	public List<String> getUserSignatures() throws UserNotFoundException {
+		StringArray response = service.getSignatureCreationList(userName);
+		List<String> userSignatures = response.getItem();
+		if(userSignatures.size() == 0) {
+			throw new UserNotFoundException();
 		}
-		entr.begin();
-		em.refresh(user);
-		entr.commit();
-		return user.getUsersignatures();
+		return userSignatures;
 	}
 	
-	/**
-	 * Create properties for connecting to the database
-	 * @param dbURL Url of database to connect to
-	 * @return Map containing properties for the database connection
-	 */
-	private Map<String,String> createDbProperties(String dbURL) {
-		Map<String,String> dbProps = new HashMap<String,String>();
-		dbProps.put("javax.persistence.jdbc.url", dbURL);
-		dbProps.put("javax.persistence.jdbc.password", "");
-		dbProps.put("javax.persistence.jdbc.driver", "org.hsqldb.jdbcDriver");
-		dbProps.put("javax.persistence.jdbc.user", "SA");
-		return dbProps;
-	}
-	
-	/**
-	 * Loads details for the current user
-	 * @return Persistent user type from MailSigner persistence library
-	 */
-	private User loadUser() {
-		if(em == null) {
-			return null;
+	private HashMap<String,String> getUserFields() throws UserNotFoundException {
+		StringArrayArray response = service.getUserFields(userName);
+		List<StringArray> entries = response.getItem();
+		
+		if(entries.size() == 0) {
+			throw new UserNotFoundException();
 		}
-		TypedQuery<User> userQuery = em.createNamedQuery("User.findUser", User.class);
-		userQuery.setParameter("value", userLogin);
-		// TODO: throw exception on no users found!
-		if(userQuery.getResultList().size() < 1) {
-			return null;
+		
+		HashMap<String, String> userFields = new HashMap<String, String>();
+		
+		List<String> fields = entries.get(0).getItem();
+		List<String> values = entries.get(1).getItem();
+		
+		for(int i = 0; i < fields.size(); i++) {
+			userFields.put(fields.get(i), values.get(i));
+			log.debug("Adding Field: " + fields.get(i));
+			log.debug("Adding Value: " + values.get(i));
 		}
-		return userQuery.getSingleResult();
-	}
-	
-	/**
-	 * Get deployment state from database
-	 * @return True if up to date
-	 */
-	private boolean isSynchronized() {
-		TypedQuery<Computer> computerQuery = em.createNamedQuery("Computer.selectComputer", Computer.class);
-		computerQuery.setParameter("value", computerName);
-		List<Computer> computerResult = computerQuery.getResultList();
-		log.debug("Searching for computer entry, found: " + computerResult.size());
-		if(computerResult.size() > 0) {
-			currentComputer = computerResult.get(computerQuery.getFirstResult());
-			if(currentComputer.getDeployed() == 1) {
-				log.info("Database reports no changes");
-				return true;
-			}
-		}
-		return false;
-	}
-	
-	/**
-	 * Update the current computers status. If current compuer is not found
-	 * one is created and entered into database.
-	 * @param writeSuccess State after attempting to write signatures.
-	 */
-	private void updateComputerState(boolean writeSuccess) {
-		byte deployed = (byte) (writeSuccess?1:0);
-		if(currentComputer == null) {
-			entr.begin();
-			Computer computer = new Computer();
-			ComputerPK computerPK = new ComputerPK();
-			computerPK.setUserIduser(user.getIduser());
-			computer.setId(computerPK);
-			computer.setUser(user);
-			computer.setLabel(computerName);
-			computer.setDeployed(deployed);
-			user.getComputers().add(computer);
-			em.persist(computer);
-			entr.commit();
-			log.debug("Created computer [" + computerName + "] userId[" +  user.getIduser() + "] state [" + deployed + "]");
-		} else {
-			currentComputer.setDeployed(deployed);
-			entr.begin();
-			em.persist(currentComputer);
-			entr.commit();
-			log.debug("Deployment state for computer [" + computerName + "] set to " + deployed);
-		}
-	}
-	
-	/**
-	 * Creates a hashmap consisting of code/value mappings, to be used in the string
-	 * replacement method.
-	 * @param user Persistent user type from MailSigner persistence library
-	 * @return A hashmap contaning code/value bindings
-	 */
-	private HashMap<String,String> createFieldMap(User user) {
-		Set<Userfield> userFields = user.getUserfields();
-		HashMap<String, String> fieldMap = new HashMap<String,String>();
-		for (Userfield userField : userFields) {
-			log.debug("Field: " + userField.getField().getLabel() + " - Value: " + userField.getValue() + " - Code: " + userField.getField().getCode());
-			fieldMap.put(userField.getField().getCode(), userField.getValue());
-		}
-		return fieldMap;
+		return userFields;
 	}
 	
 	/**
@@ -310,7 +217,7 @@ public class TrayControl implements ClipboardOwner {
 	 * Deletes unused signatures from the folder list
 	 * @param unusedSignatures
 	 */
-	private void deleteSignatures(ArrayList<String> unusedSignatures) {
+	private void deleteSignatures(List<String> unusedSignatures) {
 		Iterator<String> it = unusedSignatures.iterator();
 		while (it.hasNext()) {
 			String signatureTitle = it.next();
@@ -345,60 +252,53 @@ public class TrayControl implements ClipboardOwner {
 	/**
 	 * Creates the file output of completed signatures.
 	 * @param completedSignatures 
-	 * @return If any of the writes fail, return value is false
+	 * @throws IOException 
 	 */
-	private boolean writeSignatures(HashMap<String,CompletedSignature> completedSignatures) {
+	private void writeSignatures(HashMap<String,CompletedSignature> completedSignatures) throws IOException {
 		Iterator<Entry<String,CompletedSignature>> it = completedSignatures.entrySet().iterator();
 		while (it.hasNext()) {
-			Map.Entry<String, CompletedSignature> entry = (Map.Entry<String, CompletedSignature>) it.next();
+			Map.Entry<String, CompletedSignature> entry = it.next();
 			String signatureTitle = entry.getKey();
 			CompletedSignature completedSignature = entry.getValue();
 			
 			log.debug("Deploying signature [" + signatureTitle + "]");
 			
-			try {
-				for (String path : outlookDirs) {
-					log.info("Deploying to path: " + path);
-					File dirTest = new File(path);
-					if(!dirTest.exists()) {
-						log.error("The path " + path + " does not exist");
-						// if one of the paths doesn't exist return false, since user might want
-						// a re-deployment and this will not happen if current computer is marked
-						// as deployed.
-						return false;
-					}
-					
-					FileWriter htmlWriter = new FileWriter(path + "//" + signatureTitle + ".html");
-					htmlWriter.write(completedSignature.getHtml());
-					htmlWriter.close();
-					log.debug("HTML written");
-					
-					FileWriter htmWriter = new FileWriter(path + "//" + signatureTitle + ".htm");
-					htmWriter.write(completedSignature.getHtml());
-					htmWriter.close();
-					log.debug("HTM written");
-					
-					FileWriter rtfWriter = new FileWriter(path + "//" + signatureTitle + ".rtf");
-					rtfWriter.write(completedSignature.getRtf());
-					rtfWriter.close();
-					log.debug("RTF written");
-					
-					FileWriter txtWriter = new FileWriter(path + "//" + signatureTitle + ".txt");
-					txtWriter.write(completedSignature.getTxt());
-					txtWriter.close();
-					log.debug("TXT written");
+			for (String path : outlookDirs) {
+				log.info("Deploying to path: " + path);
+				File dirTest = new File(path);
+				if(!dirTest.exists()) {
+					log.error("The path " + path + " does not exist");
+					// if one of the paths doesn't exist return false, since user might want
+					// a re-deployment and this will not happen if current computer is marked
+					// as deployed.
 				}
-			} catch (IOException e) {
-				log.error("Cannot write signature to path");
-				return false;
+				
+				FileWriter htmlWriter = new FileWriter(path + "//" + signatureTitle + ".html");
+				htmlWriter.write(completedSignature.getHtml());
+				htmlWriter.close();
+				log.debug("HTML written");
+				
+				FileWriter htmWriter = new FileWriter(path + "//" + signatureTitle + ".htm");
+				htmWriter.write(completedSignature.getHtml());
+				htmWriter.close();
+				log.debug("HTM written");
+				
+				FileWriter rtfWriter = new FileWriter(path + "//" + signatureTitle + ".rtf");
+				rtfWriter.write(completedSignature.getRtf());
+				rtfWriter.close();
+				log.debug("RTF written");
+				
+				FileWriter txtWriter = new FileWriter(path + "//" + signatureTitle + ".txt");
+				txtWriter.write(completedSignature.getTxt());
+				txtWriter.close();
+				log.debug("TXT written");
 			}
 		}
-		return true;
 	}
 	
 	/**
 	 * 
-	 * @return
+	 * @return asdf
 	 */
 	public String getComputerName() {
 		return computerName;
@@ -406,16 +306,10 @@ public class TrayControl implements ClipboardOwner {
 	
 	/**
 	 * 
-	 * @return
+	 * @return asdf
 	 */
 	public String getUserLogin() {
-		return userLogin;
-	}
-	
-	public boolean isConnected() {
-		user = loadUser();
-		isConnected = user != null;
-		return isConnected;
+		return userName;
 	}
 
 	@Override

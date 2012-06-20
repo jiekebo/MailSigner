@@ -217,9 +217,7 @@ public final class ServiceBrowser implements Runnable {
 			return ServiceDescription.parse(tokens.nextToken(),
 					tokens.nextToken(), tokens.nextToken());
 		}
-		else {
-			return null;
-		}
+		return null;
 	}
 	
 	protected DatagramPacket getQueryPacket() {
