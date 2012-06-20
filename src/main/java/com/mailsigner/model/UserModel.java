@@ -13,6 +13,7 @@ import javax.swing.DefaultListModel;
 import org.apache.log4j.Logger;
 
 import com.mailsigner.MailSigner;
+import com.mailsigner.control.exception.UserNotFoundException;
 import com.mailsigner.model.comparator.UserComparator;
 import com.mailsigner.model.list.SortedListModel;
 import com.mailsigner.model.persistence.Computer;
@@ -103,13 +104,13 @@ public class UserModel {
 		return user;
 	}
 	
-	public User getUser(String name) {
+	public User findUser(String name) throws UserNotFoundException {
 		TypedQuery<User> userQuery = em.createNamedQuery("User.findUser", User.class);
 		userQuery.setParameter("value", name);
-		if(userQuery.getResultList().size() > 0) {
-			return userQuery.getSingleResult();
+		if(userQuery.getResultList().size() <= 0) {
+			throw new UserNotFoundException();			
 		}
-		return null;
+		return userQuery.getSingleResult();
 	}
 	
 	public boolean isAdUser() {

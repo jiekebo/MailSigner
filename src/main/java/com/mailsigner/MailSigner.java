@@ -14,6 +14,7 @@ import javax.xml.ws.Endpoint;
 import org.apache.log4j.Logger;
 
 import com.beust.jcommander.JCommander;
+import com.mailsigner.control.ComputerController;
 import com.mailsigner.control.SignatureController;
 import com.mailsigner.control.UserController;
 import com.mailsigner.control.discovery.MulticastServer;
@@ -34,6 +35,7 @@ public class MailSigner {
 	
 	private static UserController userController;
 	private static SignatureController signatureController;
+	private static ComputerController computerController;
 	
 	private static Logger log = Logger.getLogger(MailSigner.class);	
 	
@@ -99,6 +101,7 @@ public class MailSigner {
 			EventQueue.invokeAndWait(new Runnable() {
 				public void run() {
 					try {
+						computerController = new ComputerController();
 						signatureController = new SignatureController();
 						userController = new UserController();
 						UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
@@ -152,6 +155,10 @@ public class MailSigner {
 	
 	public static SignatureController getSignatureController() {
 		return signatureController;
+	}
+	
+	public static ComputerController getComputerController() {
+		return computerController;
 	}
 
 }

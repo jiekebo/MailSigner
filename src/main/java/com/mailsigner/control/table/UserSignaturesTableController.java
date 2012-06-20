@@ -20,7 +20,7 @@ public class UserSignaturesTableController extends AbstractTableModel {
 	private static final long serialVersionUID = 9186221960255730825L;
 	private static final String[] COLUMN_NAMES = {"Use", "Signature"};
 	private UsersignatureComparator signatureComparator = new UsersignatureComparator();
-	private ComputerController computerController = new ComputerController();
+	private ComputerController computerController = MailSigner.getComputerController();
 	private SignatureController signatureController = MailSigner.getSignatureController();
 	private List<Usersignature> list;
 	private User user;
@@ -47,9 +47,8 @@ public class UserSignaturesTableController extends AbstractTableModel {
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
 		Usersignature signature = list.get(rowIndex);
-		byte disabled = 0;
 		switch(columnIndex) {
-			case 0: return (signature.getEnabled() == disabled)?false:true;
+			case 0: return (!signature.isEnabled())?false:true;
 			case 1: return signature.getSignature().getTitle();
 			default: return new String("");
 		}

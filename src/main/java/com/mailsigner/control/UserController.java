@@ -3,6 +3,7 @@ package com.mailsigner.control;
 import com.mailsigner.MailSigner;
 import com.mailsigner.control.exception.NoUserSelectedException;
 import com.mailsigner.control.exception.UserExistsException;
+import com.mailsigner.control.exception.UserNotFoundException;
 import com.mailsigner.control.exception.UserlimitReachedException;
 import com.mailsigner.control.exception.UsernameEmptyException;
 import com.mailsigner.control.table.UserComputersTableController;
@@ -61,8 +62,8 @@ public class UserController {
 		return userSignaturesTableController;
 	}
 	
-	public User getUser(String name) {
-		return userModel.getUser(name);
+	public User findUser(String name) throws UserNotFoundException {
+		return userModel.findUser(name);
 	}
 
 	public boolean isAdUser() {

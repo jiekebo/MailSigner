@@ -29,6 +29,7 @@ statistics from website on image load (mail read frequency)
 OU-deployment of signature (ou's defined in ad)
 
 Improvements made:
+-Webservice interface for clients instead of direct database connection
 -Maven project
 -MVC restructure of core components
 -Null check on signatures at client

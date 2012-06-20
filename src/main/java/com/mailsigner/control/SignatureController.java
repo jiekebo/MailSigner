@@ -3,6 +3,7 @@ package com.mailsigner.control;
 import com.mailsigner.MailSigner;
 import com.mailsigner.control.exception.NoSignatureSelectedException;
 import com.mailsigner.control.exception.SignatureExistsException;
+import com.mailsigner.control.exception.SignatureNotFoundException;
 import com.mailsigner.control.exception.SignatureTitleEmptyException;
 import com.mailsigner.model.SignatureModel;
 import com.mailsigner.model.list.SortedListModel;
@@ -42,8 +43,13 @@ public class SignatureController {
 		return signatureModel.getSignature(index);
 	}
 	
+	
 	public boolean isExistingSignature(String title) {
 		return signatureModel.isExistingSignature(title);
+	}
+	
+	public Signature findSignature(String title) throws SignatureNotFoundException {
+		return signatureModel.findSignature(title);
 	}
 	
 	public void removeSignatures(int[] index) {
@@ -95,7 +101,7 @@ public class SignatureController {
 	 */
 	public void toggleSignature(Usersignature signature) {
 		byte setting;
-		if(signature.getEnabled() == 0) {
+		if(!signature.isEnabled()) {
 			setting = 1;			
 		} else {
 			setting = 0;

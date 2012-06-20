@@ -137,6 +137,7 @@ public class SignatureTab extends JPanel implements ActionListener,	ListSelectio
 		JPanel htmlPanel = new JPanel();
 		editorTabbedPane.addTab("HTML Version",	new ImageIcon(MainFrame.class.getResource("/com/mailsigner/assets/icons/089.png")),	htmlPanel, null);
 		
+		//TODO: check encoding
 		htmlEditor = new EkitCore(false, null, null, true, false, true, true, null, null, false, false, false, MAILSIGNER_TOOLBAR, true);
 		htmlPanel.setLayout(new BorderLayout(0, 0));
 		JToolBar htmlEditorToolbar = htmlEditor.getToolBar(true);

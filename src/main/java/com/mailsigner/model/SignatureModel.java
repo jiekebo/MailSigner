@@ -12,6 +12,7 @@ import javax.swing.DefaultListModel;
 import org.apache.log4j.Logger;
 
 import com.mailsigner.MailSigner;
+import com.mailsigner.control.exception.SignatureNotFoundException;
 import com.mailsigner.control.runnable.AddSignaturesProcess;
 import com.mailsigner.model.comparator.SignatureComparator;
 import com.mailsigner.model.list.SortedListModel;
@@ -67,6 +68,23 @@ public class SignatureModel {
 		}
 		return false;
 	}
+	
+	/**
+	 * Returns a named signature if it exists, otherwise null.
+	 * @param title Title of the signature.
+	 * @return Found signature, oterwise null.
+	 * @throws SignatureNotFoundException 
+	 */
+	public Signature findSignature(String title) throws SignatureNotFoundException {
+		TypedQuery<Signature> signatureQuery = em.createNamedQuery("Signature.findSignature", Signature.class);
+		signatureQuery.setParameter("value", title);
+		if(signatureQuery.getResultList().size() <= 0) {
+			throw new SignatureNotFoundException();
+		}
+		log.debug("Signature of the title " + title + " exists");
+		Signature signature = signatureQuery.getResultList().get(signatureQuery.getFirstResult());
+		return signature;
+	}
 
 	public void removeSignature(int index) {
 		Signature signature = (Signature) signatureListModel.get(index);
@@ -99,7 +117,7 @@ public class SignatureModel {
 		Set<Usersignature> signatures = signature.getUsersignatures();
 
 		for (Usersignature usersignature : signatures) {
-			if (usersignature.getEnabled() == 0) {
+			if (!usersignature.isEnabled()) {
 				return;
 			}
 			entr.begin();
