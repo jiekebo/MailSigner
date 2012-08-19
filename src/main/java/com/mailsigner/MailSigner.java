@@ -90,7 +90,7 @@ public class MailSigner {
 		multicastThread.start();
 		
 		// Start webservice endpoint
-		Endpoint.publish("http://localhost:9999/ws/mailsigner", new MailSignerServiceImpl());
+		Endpoint.publish("http://localhost:2563/ws/mailsigner", new MailSignerServiceImpl());
 		
 		// Stop here if servermode is requested, otherwise, create the gui
 		if(param.isServer()) {

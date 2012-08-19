@@ -42,11 +42,11 @@
 			<artifactId>hsqldb</artifactId>
 			<version>2.2.8</version>
 		</dependency>
-		<dependency>
-			<groupId>com.hexidex</groupId>
-			<artifactId>ekit</artifactId>
-			<version>1.0</version>
-		</dependency>
+<!-- 		<dependency> -->
+<!-- 			<groupId>com.hexidex</groupId> -->
+<!-- 			<artifactId>ekit</artifactId> -->
+<!-- 			<version>1.0</version> -->
+<!-- 		</dependency> -->
 		<dependency>
 			<groupId>com.mailsigner</groupId>
 			<artifactId>WordProcessor</artifactId>
