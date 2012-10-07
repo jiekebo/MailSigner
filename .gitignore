@@ -6,3 +6,4 @@ target/
 /data
 /settings.ini
 /MailSignerServer.iml
+/defaultFields.ini
