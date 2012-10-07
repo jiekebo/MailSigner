@@ -16,8 +16,8 @@ import javax.persistence.NamedQuery;
  * The persistent class for the COMPUTER database table.
  * 
  */
-@NamedQueries({ 
-	@NamedQuery(name = "Computer.selectComputer", query = "SELECT c FROM Computer c WHERE c.label LIKE :value")
+@NamedQueries({
+	@NamedQuery(name = "Computer.findComputer", query = "SELECT c FROM Computer c WHERE c.label = :label AND c.user = :user")
 })
 @Entity
 public class Computer implements Serializable {
