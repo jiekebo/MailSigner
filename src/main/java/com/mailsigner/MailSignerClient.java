@@ -33,7 +33,7 @@ public class MailSignerClient {
 		// TODO: Make the webservice poll and reconnect.
 		URL serviceLocation = null;
 		try {
-			serviceLocation = new URL("http:/" + serverAddress + ":9999/ws/mailsigner/");
+			serviceLocation = new URL("http:/" + serverAddress + ":2563/ws/mailsigner/");
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
