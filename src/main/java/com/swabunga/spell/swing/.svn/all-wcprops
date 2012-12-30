@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/svnroot/ekit/!svn/ver/9/src/com/swabunga/spell/swing
+END
+messages.properties
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/ekit/!svn/ver/1/src/com/swabunga/spell/swing/messages.properties
+END
+JSpellDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/ekit/!svn/ver/9/src/com/swabunga/spell/swing/JSpellDialog.java
+END
+messages_sv.properties
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/ekit/!svn/ver/1/src/com/swabunga/spell/swing/messages_sv.properties
+END
+JSpellForm.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svnroot/ekit/!svn/ver/1/src/com/swabunga/spell/swing/JSpellForm.java
+END
