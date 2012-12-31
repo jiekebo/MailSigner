@@ -182,7 +182,7 @@ public class DatabaseUtil {
 			String insertDefaultFieldsStatement = 
 					"INSERT INTO Field (idField, Label, Code, Protected) VALUES (NULL, ?, ?, 1);";
 			PreparedStatement statement = con.prepareStatement(insertDefaultFieldsStatement);
-			InputStream defaultFieldsStream = DatabaseUtil.class.getResourceAsStream("/" + MailSigner.getSettings().getDefaultFieldsFile());
+			InputStream defaultFieldsStream = DatabaseUtil.class.getResourceAsStream(MailSigner.getSettings().getDefaultFieldsFile());
 			Map<String, String> defaultFields = Util.readPropertiesFileAsMap(defaultFieldsStream, ":");
 			Set<Entry<String,String>> entries = defaultFields.entrySet();
 			for (Entry<String, String> entry : entries) {

@@ -25,7 +25,7 @@ public class Settings implements Serializable {
 	private int timeout 					= 3600;
 	private String datapath 				= "./data";
 	private String databaseLocation			= "file:" + datapath + "/db";
-	private String defaultFieldsFile		= "defaultFields.ini";
+	private String defaultFieldsFile		= "/defaultFields.ini";
 	private String login 					= "";
 	private String loginpassword 			= "";
 	private String companyName				= "";
