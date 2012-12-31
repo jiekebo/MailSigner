@@ -1,5 +1,6 @@
 package com.mailsigner.util;
 
+import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -181,7 +182,8 @@ public class DatabaseUtil {
 			String insertDefaultFieldsStatement = 
 					"INSERT INTO Field (idField, Label, Code, Protected) VALUES (NULL, ?, ?, 1);";
 			PreparedStatement statement = con.prepareStatement(insertDefaultFieldsStatement);
-			Map<String, String> defaultFields = Util.readPropertiesFileAsMap(MailSigner.getSettings().getDefaultFieldsFile(), ":");
+			InputStream defaultFieldsStream = DatabaseUtil.class.getResourceAsStream("/" + MailSigner.getSettings().getDefaultFieldsFile());
+			Map<String, String> defaultFields = Util.readPropertiesFileAsMap(defaultFieldsStream, ":");
 			Set<Entry<String,String>> entries = defaultFields.entrySet();
 			for (Entry<String, String> entry : entries) {
 				statement.setString(1, entry.getKey());

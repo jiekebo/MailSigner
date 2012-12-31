@@ -81,7 +81,7 @@ public class MailSigner {
 		// Reset database on command line parameter
 		if(param.isResetDatabase()) {
 			dbl.resetDatabase();
-		}		
+		}
 
 		// Start udp multicast server
 		MulticastServer multicastServer = new MulticastServer();
