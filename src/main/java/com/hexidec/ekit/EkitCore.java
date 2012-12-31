@@ -3184,6 +3184,10 @@ public class EkitCore extends JPanel implements ActionListener, KeyListener, Foc
 	{
 		return getSubText("body");
 	}
+	
+	public Document getDocument() {
+		return jtpSource.getDocument();
+	}
 
 	/** Convenience method for setting the document text
 	  */
