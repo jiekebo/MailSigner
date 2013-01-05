@@ -407,7 +407,7 @@ class DoubleMeta implements Transformator{
           else
             current += 1;
           break;
-        case 'Ç':
+        case 'Ã‡':
           MetaphAdd(primary, 'S');
           current += 1;
           break;
@@ -711,7 +711,7 @@ class DoubleMeta implements Transformator{
             current += 1;
           MetaphAdd(primary, 'N');
           break;
-        case 'Ñ':
+        case 'Ã‘':
           current += 1;
           MetaphAdd(primary, 'N');
           break;
