@@ -1,0 +1,125 @@
+MailSigner FAQ.
+
+Main program
+
+The purpose of MailSigner is to help you by cutting out the tedious work of filling in contact details of your employees'
+many signatures. This is done by giving you an interface where you can design a signature and define the fields where
+the employees' details should be entered. 
+
+The employees' details are also handled by the program, and can be entered manually. Bear in mind it is only nessicary 
+to enter details once, and the program can even connect with an Active Directory, where users can also be entered 
+and synchronised with MailSigner.
+
+To deploy the signatures for the users it is nessicary to have the MailSignerClient.jar run at every startup.
+
+
+MailSigner consists of two major panes.
+
+- Signature managament pane
+To create a new signature, click the gray plus button. You will be asked to enter a name of the signature, this has to be
+unique. After you have created a signature, select it on the list to the left. To the right is the editor panes.
+Here you have the choice of three different formats for your signature. Txt is for sending to mail clients that only
+display text, not images. HTML is for mail clients which can show web content like hotmail, gmail, thunderbird or outlook.
+RTF is specifically for outlook.
+
+In the beginning the editor panes will be empty, even after you select the signature you just created.
+To start designing a signature begin by entering a desciption of the signature. This will help you recognise the usage
+of the signature in the future.
+
+Click the text version tab in the editor pane to start writing the text version of the signature. Bear in mind that the
+signature will look exactly the same way as you enter it, provided that it is shown in a monospaced (evenly spaced) font.
+To add the contact fields to be filled out by the software put the text cursor where you want the field, then select the 
+relevant field from the dropdown box above the editor pane, and click the green plus. This will insert {#firstname#} 
+if you were to insert the first name of the users. These fields can be entered manually if you can remember them.
+
+To write the HTML-version click the html tab. Here you will be met by a full scale wysiwyg (what you see is what you get)
+editor. The aim of this is to help you write html without knowing html. You can insert tables, change text font, create
+links and so forth. Bear in mind when you insert images, not to link an image on your local computer, as it will not
+show up on recievers who do not have access to your personal file storage. Instead link to an image located on a web-
+server with a url like http://www.someplace.com/img/myimage.jpg. 
+
+To write the RTF-version click the RTF-tab and start writing. Here you have a slimmer choice than from the HTML. The
+reason being that RTF is very different from HTML. In RTF you cannot link to images on a webserver, instead the image
+has to be included in the RTF-file itself, and sending 1000 mails a day for example will stuff your outbox with the same
+image a 1000 times, which is waste of space. We generally recommend you write mail signatures in HTML.
+
+To save the signature click the disk icon in the toolbar. If select a signature on the signatures list, and forgot to
+save, your changes will be lost.
+
+To delete signatures mark the signatures in question (if several signatures need deletion user ctrl+click to select
+multiple signatures). To delete click the gray minus button on top.
+
+
+-User management pane
+The user management pane is where you keep control of the employees' details. To the left is a list of the users by
+their logon name. To create a user click the user with a green plus on it. You will be asked to enter a name of the
+user. It is very important to enter the correct logon name of the user, so the software can recognise the user which
+logs on. The user is created and will be visible in the list to the left. Click the user to start entering details.
+
+The fields to the right remain empty, so click in one of them and start typing the users information in. When finished
+click the disk icon to save the details.
+
+To remove users mark the users in question (if several users need deletion user ctrl+click to select
+multiple users). To remove click the user with a red minus on it.
+
+Below the user's details you see a table, which will contain the names of the signatures and have a checkbox next to
+them. This is where you control who gets which signature. Simply click the checkbox to enable or disable the signature
+for the selected user. To the right of this table you will see as the signature gets deployed, what workstations the
+user uses. If the user only uses one computer, you will only see the network name of one computer. If it has been
+successfully deployed, a checkmark will appear next to the network name.
+
+To synchronize the software with an Active Directory, a little configuration has to be made first to be able to establish
+connection. Go to the file menu and click AD-Options. Here host is either the ip of your Active Directory host, or the
+qualifying name and domain of your AD host. The user is the administrative account you use to log into the server, as
+well as the password. If your domain is internal.companyname.com you will need to write dc=internal,dc=companyname,dc=com
+in this box.
+
+After this click the lightning in the toolbar. After a little while a dialog will pop up and list the users you have in
+your AD. Select the ones you wish to make mail signatures for by ctrl+clicking them on the list. Click ok and the users
+will be entered into the users list. The fields are grayed out since the data came from the AD. To update a users details
+do it in the AD, then mark the user in MailSigner, and click the green arrows to update.
+
+
+Field names and codes:
+First Name      {#firstname#}
+Last Name       {#lastname#}
+Display Name    {#displayname#}
+Initials        {#initials#}
+Description     {#description#}
+Office          {#office#}
+Telephone       {#telephonenumber#}
+Mail            {#mail#}
+Website         {#wwwhomepage#}
+Street Address  {#street#}
+Post Box        {#pobox#}
+City            {#city#}
+State           {#state#}
+Zipcode         {#zip#}
+Country         {#country#}
+Home Phone      {#homephone#}
+Pager           {#pager#}
+Mobile Phone    {#mobile#}
+Fax             {#fax#}
+IP Phone        {#ipphone#}
+Job Title       {#title#}
+Department      {#department#}
+Company         {#company#}
+Manager         {#manager#}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

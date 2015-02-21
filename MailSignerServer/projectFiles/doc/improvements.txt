@@ -1,0 +1,82 @@
+Improvements to be made:
+
+Need to have:
+restructure of ad-user
+about box
+logging on client clipboard actions
+logging in server
+better feedback on user login
+On rename, case cannot be changed
+What happens when client looses connection?
+Ability to add outlook folders (for different versions of os or outlook)
+Default signature format client
+Texts in .properties file
+
+Case:
+Empty, create new signature, change it, dont save, create another, choose yes =>
+Changes are not saved to the first signature
+
+Nice to have:
+Detection of unregistered users and display in the server manager
+User/signature rights grid, for mass rights assignment
+User fields e.g. IM and Social links/icons
+Premium signatures
+Server client architecture, with status for clients connectivity
+Usage statistics
+disclaimer additions
+campaigns and periodical signatures
+statistics from website on image load (mail read frequency)
+OU-deployment of signature (ou's defined in ad)
+
+Improvements made:
+-Webservice interface for clients instead of direct database connection
+-Maven project
+-MVC restructure of core components
+-Null check on signatures at client
+-Computer deployment cases in server
+-Clear tables or editor panes on delete
+-Pressing escape in dialogs will accept instead of cancel
+-Make sure user gets updated at the client side
+-update persisted states in server
+-Deletion of disabled signatures for outlook client (create structure over files in dir and delete)
+-Server mode for main program (no gui just & for gui don't start servers)
+-Label of computer in db
+-Hints in status bar on mouse over
+-Server location auto-detection from client (via UDP multicast)
+-Status bar with indication of process status
+-Processes should run as threads (add and remove signatures only)
+-Fix HTML-editor
+-Redo ad-interface, and test
+-Warnings on delete (signature/user)
+-Possibly split MainFrame up into seperate panels
+-Fix RTF-editor
+-Better data-structure
+-Build windows in WindowBuilder Pro
+-Complete code cleanup
+-Using JAXB for xml-binding with classes
+-naming now relies on a randomly generated id, instead of the displayed name
+-Rtf-editor doesn't warn one to save
+-Create xml-files if none exists and remove xml-files from install
+-make dialogs more user friendly and less annoying
+-renaming of signature/user
+-client compatibility with other mail programs
+-fix rtf-toolbar
+-text change detection, remind user to save
+-menu shortcuts for buttons
+-key listener on lists
+-deletion of multiple users/signatures
+-config editor
+-when non ad users details are changed, a redeployment should happen! (detection if details are changed)
+-Auto-save on signature rights
+-limitation on amount of users
+-rearrangment of datafiles
+-about box
+-installer
+-for multi-wing: fields to match old outlook signature program (or maybe just rewriting signatures myself?)
+-several workstations enabled; information about deployment status of individual signatures on individual workstations
+-tab order on user details
+-registration key or web-activation
+-Integration with website (user login, combines registration also)
+-wysiwyg editor for html+rtf and possibility to view source
+-special for rtf; match fields with \{#blabla#}\ instead of {#blabla#} (maybe after wysiwyg editor is in place)
+-jsplitpane for users details/signatures
