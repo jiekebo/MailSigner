@@ -1,0 +1,161 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component
+END
+FileDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svnroot/ekit/!svn/ver/2/src/com/hexidec/ekit/component/FileDialog.java
+END
+MutableFilter.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/ekit/!svn/ver/1/src/com/hexidec/ekit/component/MutableFilter.java
+END
+HTMLUtilities.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/HTMLUtilities.java
+END
+ImageDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/ImageDialog.java
+END
+ExtendedWhiteSpaceHandlingHTMLWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svnroot/ekit/!svn/ver/2/src/com/hexidec/ekit/component/ExtendedWhiteSpaceHandlingHTMLWriter.java
+END
+ExtendedHTMLEditorKit.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/ExtendedHTMLEditorKit.java
+END
+ImageFileChooser.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/ImageFileChooser.java
+END
+UnicodeDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/UnicodeDialog.java
+END
+ImageFileChooserPreview.java
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/ImageFileChooserPreview.java
+END
+EkitStandardParserCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/EkitStandardParserCallback.java
+END
+RelativeImageView.java
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/RelativeImageView.java
+END
+UserInputAnchorDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/UserInputAnchorDialog.java
+END
+PropertiesDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/PropertiesDialog.java
+END
+EkitHTMLWriter.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/ekit/!svn/ver/2/src/com/hexidec/ekit/component/EkitHTMLWriter.java
+END
+UserInputDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/UserInputDialog.java
+END
+JComboBoxNoFocus.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/JComboBoxNoFocus.java
+END
+JButtonNoFocus.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/JButtonNoFocus.java
+END
+JToggleButtonNoFocus.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/JToggleButtonNoFocus.java
+END
+ExtendedHTMLDocument.java
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/ExtendedHTMLDocument.java
+END
+ImageURLDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/ImageURLDialog.java
+END
+SearchDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/SearchDialog.java
+END
+SimpleInfoDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/SimpleInfoDialog.java
+END
+SymbolDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svnroot/ekit/!svn/ver/2/src/com/hexidec/ekit/component/SymbolDialog.java
+END
+ExtendedWhiteSpaceHandlingHTMLEditorKit.java
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svnroot/ekit/!svn/ver/2/src/com/hexidec/ekit/component/ExtendedWhiteSpaceHandlingHTMLEditorKit.java
+END
+FontSelectorDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/FontSelectorDialog.java
+END
+TableInputDialog.java
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svnroot/ekit/!svn/ver/9/src/com/hexidec/ekit/component/TableInputDialog.java
+END
