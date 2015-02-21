@@ -1,0 +1,334 @@
+2012-06-15 05:52:36,172 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 8
+2012-06-15 05:53:27,904 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 9
+2012-06-15 05:54:00,515 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 106
+2012-06-15 05:54:15,072 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 106
+2012-06-15 17:21:58,759 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 106
+2012-06-15 17:29:52,393 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 106
+2012-06-15 17:29:52,395 - com.mailsigner.MailSignerClient - DEBUG - Replacing field [firstname] with Test
+2012-06-15 17:33:56,307 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#mobile#}
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#displayname#}
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: Test
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pobox#}
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#company#}
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,310 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#city#}
+2012-06-15 17:33:56,311 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,311 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#state#}
+2012-06-15 17:33:56,311 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,311 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#description#}
+2012-06-15 17:33:56,311 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: Test
+2012-06-15 17:33:56,311 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pager#}
+2012-06-15 17:33:56,311 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,313 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#office#}
+2012-06-15 17:33:56,313 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,313 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#manager#}
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#website#}
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#ipphone#}
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#telephone#}
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,314 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#department#}
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#street#}
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#homephone#}
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#country#}
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#initials#}
+2012-06-15 17:33:56,315 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#fax#}
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#firstname#}
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: Test
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#email#}
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#lastname#}
+2012-06-15 17:33:56,316 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: Test
+2012-06-15 17:33:56,317 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#zip#}
+2012-06-15 17:33:56,317 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,317 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#title#}
+2012-06-15 17:33:56,317 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-15 17:33:56,318 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 106
+2012-06-15 17:33:56,318 - com.mailsigner.MailSignerClient - DEBUG - Replacing field [firstname] with Test
+2012-06-20 07:27:07,020 - com.mailsigner.MailSignerClient - DEBUG - User could not be found
+2012-06-20 16:35:02,899 - com.mailsigner.MailSignerClient - DEBUG - User could not be found
+2012-06-20 16:35:35,716 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#manager#}
+2012-06-20 16:35:35,716 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,716 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#office#}
+2012-06-20 16:35:35,716 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:35:35,716 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#displayname#}
+2012-06-20 16:35:35,717 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:35:35,717 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pobox#}
+2012-06-20 16:35:35,717 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,717 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#initials#}
+2012-06-20 16:35:35,717 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:35:35,717 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#email#}
+2012-06-20 16:35:35,717 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,718 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#ipphone#}
+2012-06-20 16:35:35,718 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,718 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#mobile#}
+2012-06-20 16:35:35,719 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,719 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#city#}
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#lastname#}
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#department#}
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#firstname#}
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: Test123
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#street#}
+2012-06-20 16:35:35,720 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#telephone#}
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#country#}
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#website#}
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#zip#}
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,721 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#state#}
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#description#}
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#homephone#}
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#fax#}
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pager#}
+2012-06-20 16:35:35,722 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,723 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#title#}
+2012-06-20 16:35:35,723 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,723 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#company#}
+2012-06-20 16:35:35,723 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:35:35,732 - com.mailsigner.MailSignerClient - INFO - Preparing user signature [Test2]
+2012-06-20 16:35:35,806 - com.mailsigner.MailSignerClient - INFO - Replacing html fields
+2012-06-20 16:35:35,807 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 77
+2012-06-20 16:35:35,807 - com.mailsigner.MailSignerClient - DEBUG - Replacing field [firstname] with Test123
+2012-06-20 16:35:35,808 - com.mailsigner.MailSignerClient - INFO - Replacing rtf fields
+2012-06-20 16:35:35,808 - com.mailsigner.MailSignerClient - INFO - Replacing txt fields
+2012-06-20 16:35:35,808 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signatures] does not exist
+2012-06-20 16:35:35,809 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signaturer] does not exist
+2012-06-20 16:35:35,809 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signatures] does not exist
+2012-06-20 16:35:35,809 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signaturer] does not exist
+2012-06-20 16:35:35,809 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signatures] does not exist
+2012-06-20 16:35:35,809 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signaturer] does not exist
+2012-06-20 16:35:35,810 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signatures] does not exist
+2012-06-20 16:35:35,810 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signaturer] does not exist
+2012-06-20 16:35:35,810 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signatures] does not exist
+2012-06-20 16:35:35,810 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signaturer] does not exist
+2012-06-20 16:35:35,810 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signatures] does not exist
+2012-06-20 16:35:35,811 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signaturer] does not exist
+2012-06-20 16:35:35,811 - com.mailsigner.MailSignerClient - DEBUG - Deploying signature [Test2]
+2012-06-20 16:35:35,811 - com.mailsigner.MailSignerClient - INFO - Deploying to path: \Application Data\Microsoft\Signatures
+2012-06-20 16:35:35,811 - com.mailsigner.MailSignerClient - ERROR - The path \Application Data\Microsoft\Signatures does not exist
+2012-06-20 16:35:35,812 - com.mailsigner.MailSignerClient - DEBUG - Writing signatures genereated error
+java.io.FileNotFoundException: \Application Data\Microsoft\Signatures/Test2.html (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:194)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:84)
+	at java.io.FileWriter.<init>(FileWriter.java:46)
+	at com.mailsigner.control.TrayControl.writeSignatures(TrayControl.java:276)
+	at com.mailsigner.control.TrayControl.deploy(TrayControl.java:94)
+	at com.mailsigner.view.TrayView.actionPerformed(TrayView.java:137)
+	at java.awt.MenuItem.processActionEvent(MenuItem.java:627)
+	at java.awt.MenuItem.processEvent(MenuItem.java:586)
+	at java.awt.MenuComponent.dispatchEventImpl(MenuComponent.java:337)
+	at java.awt.MenuComponent.dispatchEvent(MenuComponent.java:325)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:687)
+	at java.awt.EventQueue.access$000(EventQueue.java:85)
+	at java.awt.EventQueue$1.run(EventQueue.java:643)
+	at java.awt.EventQueue$1.run(EventQueue.java:641)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:657)
+	at java.awt.EventQueue$2.run(EventQueue.java:655)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:654)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:296)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:211)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:196)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:188)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2012-06-20 16:42:14,213 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#manager#}
+2012-06-20 16:42:14,215 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#office#}
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#displayname#}
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pobox#}
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#initials#}
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#email#}
+2012-06-20 16:42:14,216 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,217 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#ipphone#}
+2012-06-20 16:42:14,217 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,217 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#mobile#}
+2012-06-20 16:42:14,217 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,218 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#city#}
+2012-06-20 16:42:14,219 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,219 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#lastname#}
+2012-06-20 16:42:14,219 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:42:14,219 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#department#}
+2012-06-20 16:42:14,219 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,219 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#firstname#}
+2012-06-20 16:42:14,219 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: Test123
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#street#}
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#telephone#}
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#country#}
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#website#}
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,220 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#zip#}
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#state#}
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#description#}
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#homephone#}
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#fax#}
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,221 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pager#}
+2012-06-20 16:42:14,222 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,222 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#title#}
+2012-06-20 16:42:14,222 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,222 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#company#}
+2012-06-20 16:42:14,222 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:42:14,232 - com.mailsigner.MailSignerClient - INFO - Preparing user signature [Test2]
+2012-06-20 16:42:14,241 - com.mailsigner.MailSignerClient - INFO - Replacing html fields
+2012-06-20 16:42:14,242 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 77
+2012-06-20 16:42:14,242 - com.mailsigner.MailSignerClient - DEBUG - Replacing field [firstname] with Test123
+2012-06-20 16:42:14,242 - com.mailsigner.MailSignerClient - INFO - Replacing rtf fields
+2012-06-20 16:42:14,242 - com.mailsigner.MailSignerClient - INFO - Replacing txt fields
+2012-06-20 16:42:14,242 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signatures] does not exist
+2012-06-20 16:42:14,242 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signaturer] does not exist
+2012-06-20 16:42:14,243 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signatures] does not exist
+2012-06-20 16:42:14,243 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signaturer] does not exist
+2012-06-20 16:42:14,243 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signatures] does not exist
+2012-06-20 16:42:14,243 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signaturer] does not exist
+2012-06-20 16:42:14,243 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signatures] does not exist
+2012-06-20 16:42:14,243 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signaturer] does not exist
+2012-06-20 16:42:14,243 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signatures] does not exist
+2012-06-20 16:42:14,244 - com.mailsigner.MailSignerClient - ERROR - The path [\Application Data\Microsoft\Signaturer] does not exist
+2012-06-20 16:42:14,244 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signatures] does not exist
+2012-06-20 16:42:14,244 - com.mailsigner.MailSignerClient - ERROR - The path [\AppData\Roaming\Microsoft\Signaturer] does not exist
+2012-06-20 16:42:14,244 - com.mailsigner.MailSignerClient - DEBUG - Deploying signature [Test2]
+2012-06-20 16:42:14,244 - com.mailsigner.MailSignerClient - INFO - Deploying to path: \Application Data\Microsoft\Signatures
+2012-06-20 16:42:14,244 - com.mailsigner.MailSignerClient - ERROR - The path \Application Data\Microsoft\Signatures does not exist
+2012-06-20 16:42:14,245 - com.mailsigner.MailSignerClient - DEBUG - Writing signatures genereated error
+java.io.FileNotFoundException: \Application Data\Microsoft\Signatures/Test2.html (No such file or directory)
+	at java.io.FileOutputStream.open(Native Method)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:194)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:84)
+	at java.io.FileWriter.<init>(FileWriter.java:46)
+	at com.mailsigner.control.TrayControl.writeSignatures(TrayControl.java:276)
+	at com.mailsigner.control.TrayControl.deploy(TrayControl.java:94)
+	at com.mailsigner.view.TrayView.actionPerformed(TrayView.java:137)
+	at java.awt.MenuItem.processActionEvent(MenuItem.java:627)
+	at java.awt.MenuItem.processEvent(MenuItem.java:586)
+	at java.awt.MenuComponent.dispatchEventImpl(MenuComponent.java:337)
+	at java.awt.MenuComponent.dispatchEvent(MenuComponent.java:325)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:687)
+	at java.awt.EventQueue.access$000(EventQueue.java:85)
+	at java.awt.EventQueue$1.run(EventQueue.java:643)
+	at java.awt.EventQueue$1.run(EventQueue.java:641)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:98)
+	at java.awt.EventQueue$2.run(EventQueue.java:657)
+	at java.awt.EventQueue$2.run(EventQueue.java:655)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.AccessControlContext$1.doIntersectionPrivilege(AccessControlContext.java:87)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:654)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:296)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:211)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:196)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:188)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:122)
+2012-06-20 16:43:11,805 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#manager#}
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#office#}
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#displayname#}
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pobox#}
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,808 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#initials#}
+2012-06-20 16:43:11,809 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:43:11,809 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#email#}
+2012-06-20 16:43:11,809 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,809 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#ipphone#}
+2012-06-20 16:43:11,809 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,809 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#mobile#}
+2012-06-20 16:43:11,809 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,811 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#city#}
+2012-06-20 16:43:11,811 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,811 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#lastname#}
+2012-06-20 16:43:11,811 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:43:11,811 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#department#}
+2012-06-20 16:43:11,811 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#firstname#}
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: Test123
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#street#}
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#telephone#}
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#country#}
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,812 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#website#}
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#zip#}
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#state#}
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#description#}
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: test
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#homephone#}
+2012-06-20 16:43:11,813 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#fax#}
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#pager#}
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#title#}
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Field: {#company#}
+2012-06-20 16:43:11,814 - com.mailsigner.MailSignerClient - DEBUG - Adding Value: 
+2012-06-20 16:43:11,824 - com.mailsigner.MailSignerClient - INFO - Preparing user signature [Test2]
+2012-06-20 16:43:11,834 - com.mailsigner.MailSignerClient - INFO - Replacing html fields
+2012-06-20 16:43:11,835 - com.mailsigner.MailSignerClient - DEBUG - Pattern match found at 77
+2012-06-20 16:43:11,835 - com.mailsigner.MailSignerClient - DEBUG - Replacing field [firstname] with Test123
+2012-06-20 16:43:11,835 - com.mailsigner.MailSignerClient - INFO - Replacing rtf fields
+2012-06-20 16:43:11,835 - com.mailsigner.MailSignerClient - INFO - Replacing txt fields
+2012-06-20 16:43:11,836 - com.mailsigner.MailSignerClient - INFO - Deleting [Test1] signature from //Users//jiekebo
+2012-06-20 16:43:11,836 - com.mailsigner.MailSignerClient - DEBUG - HTML deleted: false
+2012-06-20 16:43:11,836 - com.mailsigner.MailSignerClient - DEBUG - HTM deleted: false
+2012-06-20 16:43:11,836 - com.mailsigner.MailSignerClient - DEBUG - RTF deleted: false
+2012-06-20 16:43:11,836 - com.mailsigner.MailSignerClient - DEBUG - TXT deleted: false
+2012-06-20 16:43:11,836 - com.mailsigner.MailSignerClient - INFO - Deleting [Test4] signature from //Users//jiekebo
+2012-06-20 16:43:11,837 - com.mailsigner.MailSignerClient - DEBUG - HTML deleted: false
+2012-06-20 16:43:11,837 - com.mailsigner.MailSignerClient - DEBUG - HTM deleted: false
+2012-06-20 16:43:11,837 - com.mailsigner.MailSignerClient - DEBUG - RTF deleted: false
+2012-06-20 16:43:11,837 - com.mailsigner.MailSignerClient - DEBUG - TXT deleted: false
+2012-06-20 16:43:11,837 - com.mailsigner.MailSignerClient - INFO - Deleting [Test3] signature from //Users//jiekebo
+2012-06-20 16:43:11,837 - com.mailsigner.MailSignerClient - DEBUG - HTML deleted: false
+2012-06-20 16:43:11,838 - com.mailsigner.MailSignerClient - DEBUG - HTM deleted: false
+2012-06-20 16:43:11,838 - com.mailsigner.MailSignerClient - DEBUG - RTF deleted: false
+2012-06-20 16:43:11,838 - com.mailsigner.MailSignerClient - DEBUG - TXT deleted: false
+2012-06-20 16:43:11,838 - com.mailsigner.MailSignerClient - DEBUG - Deploying signature [Test2]
+2012-06-20 16:43:11,838 - com.mailsigner.MailSignerClient - INFO - Deploying to path: //Users//jiekebo
+2012-06-20 16:43:11,839 - com.mailsigner.MailSignerClient - DEBUG - HTML written
+2012-06-20 16:43:11,839 - com.mailsigner.MailSignerClient - DEBUG - HTM written
+2012-06-20 16:43:11,840 - com.mailsigner.MailSignerClient - DEBUG - RTF written
+2012-06-20 16:43:11,840 - com.mailsigner.MailSignerClient - DEBUG - TXT written
